@@ -1,0 +1,12 @@
+import { useLocation, useNavigate } from "@tanstack/react-router";
+
+export function usePathname() {
+  return useLocation({ select: (location) => location.pathname });
+}
+
+export function useRouter() {
+  const navigate = useNavigate();
+  return {
+    push: (href: string) => navigate({ href }),
+  };
+}
